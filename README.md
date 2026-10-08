@@ -46,23 +46,6 @@ ExpenseIQ stores its application data in a Room database on the Android device. 
 
 This keeps the core tracker usable without a network connection and limits the amount of personal financial information that leaves the device.
 
-## Privacy and security
-
-The repository is prepared for public source control with the following safeguards:
-
-- No API keys or private service credentials are included.
-- No environment file containing secrets is required by the app.
-- The previous platform-specific secret configuration has been removed because the current application does not need it.
-- New passwords are stored using PBKDF2-HMAC-SHA256 with a unique random salt rather than a fast unsalted password digest.
-- Existing local accounts using the previous password format are upgraded after a successful sign-in.
-- The saved active session identifier is encrypted using Android Keystore with AES-GCM.
-- Financial records are associated with a local user ID and repository queries are scoped to that user.
-- Android application backup is disabled to reduce accidental exposure of local financial records through device backup flows.
-- Signing keys are not stored in the repository.
-- Build output, IDE files and local configuration files are ignored by Git.
-
-No security claim is absolute. The project avoids shipping credentials and uses Android platform security facilities for the sensitive data it stores locally.
-
 ## Tech stack
 
 | Area | Technology |
